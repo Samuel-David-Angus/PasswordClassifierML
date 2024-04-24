@@ -1,12 +1,11 @@
 import streamlit as st
 import math
 import numpy as np
-import pickle
+import tensorflow as tf
 
 CRACK_PASSWORD_PER_SECOND = 1000000000
 
-with open('model.pkl', 'rb') as f:
-    model = pickle.load(f)
+model = tf.keras.models.load_model('path_to_your_model')
 
 def calc_entropy(password: str) -> float:
     """Calculate the entropy of a given password.
