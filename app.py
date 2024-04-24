@@ -5,7 +5,7 @@ import tensorflow as tf
 
 CRACK_PASSWORD_PER_SECOND = 1000000000
 
-model = tf.keras.models.load_model('path_to_your_model')
+model = tf.keras.models.load_model('passwordModel.keras')
 
 def calc_entropy(password: str) -> float:
     """Calculate the entropy of a given password.
