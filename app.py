@@ -2,10 +2,21 @@ import tensorflow as tf
 import streamlit as st
 import math
 import numpy as np
+import sys
+import path
 
 CRACK_PASSWORD_PER_SECOND = 1000000000
 
-model = tf.keras.models.load_model('passwordModel.keras')
+dir = path.Path(__file__).abspath()
+sys.append.path(dir.parent.parent)
+
+path_to_model = 'passwordModel.keras'
+
+
+with open(path_to_model, 'rb') as file:
+    model = tf.keras.models.load_model(file)
+
+
 
 def calc_entropy(password: str) -> float:
     """Calculate the entropy of a given password.
